@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: reloader
+  namespace: argocd
 spec:
   generators:
     - git:
@@ -20,10 +21,10 @@ spec:
           ref: values
         - chart: reloader
           repoURL: https://stakater.github.io/stakater-charts/
-          revision: latest
+          targetRevision: v1.4.5
           helm:
             valueFiles:
-              - '$values/reloader/{{path.basename}}/values.yaml'
+              - "$values/reloader/{{path.basename}}/values.yaml"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{path.basename}}"

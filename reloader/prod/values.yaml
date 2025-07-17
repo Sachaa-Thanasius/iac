@@ -2,7 +2,7 @@ reloader:
   namespaceSelector: "prod"
   deployment:
     tolerations:
-      - key: prod
+      - key: "prod"
         operator: "Equal"
         effect: "NoSchedule"
-        value: "true"
+        value: true
