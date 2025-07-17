@@ -5,4 +5,4 @@ reloader:
       - key: "prod"
         operator: "Equal"
         effect: "NoSchedule"
-        value: true
+        value: "true"
