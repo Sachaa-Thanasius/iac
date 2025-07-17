@@ -14,7 +14,7 @@ spec:
     metadata:
       name: "reloader-{{path.basename}}"
     spec:
-      project: "{{path.basename}}"
+      project: default
       sources:
         - repoURL: https://github.com/Sachaa-Thanasius/iac.git
           targetRevision: HEAD
