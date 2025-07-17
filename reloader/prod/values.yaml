@@ -1,0 +1,8 @@
+reloader:
+  namespaceSelector: "prod"
+  deployment:
+    tolerations:
+      - key: prod
+        operator: "Equal"
+        effect: "NoSchedule"
+        value: "true"

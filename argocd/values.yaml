@@ -1,0 +1,40 @@
+## Globally shared configuration
+global:
+  # -- Default domain used by all components
+  ## Used for ingresses, certificates, SSO, notifications, etc.
+  domain: argocd.local
+
+  tolerations:
+    - key: "dev"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "prod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+
+server:
+  # Argo CD server ingress configuration
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+
+    controller: generic
+
+    # -- Defines which ingress controller will implement the resource
+    ingressClassName: "nginx"
+
+    # -- Argo CD server hostname
+    # @default -- `""` (defaults to global.domain)
+    hostname: "argocd.local"
+
+    # -- The path to Argo CD server
+    path: /
+
+    # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
+    pathType: Prefix
+
+# Just say I had to manage the dex server and add groups and stuff.
+dex:
+  enabled: true

@@ -1,0 +1,4 @@
+reloader:
+  namespaceSelector: "dev"
+  deployment:
+    replicas: 0
